@@ -1,0 +1,9 @@
+flask==2.2.5
+flask-socketio==5.2.0
+python-dotenv==1.0.0
+eventlet==0.30.2
+bidict==0.22.1
+python-engineio==4.3.4
+python-socketio==5.7.2
+gunicorn==21.2.0
+pyOpenSSL==23.2.0

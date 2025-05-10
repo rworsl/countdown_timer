@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Google AdSense Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Ad Unit - Top Banner -->
+    <div class="ad-container ad-banner">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-YOUR_PUBLISHER_ID"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <div class="container">
+        <div class="timer-card">
+            <h1>Countdown Timer</h1>
+            
+            <div class="timer-display">
+                <span id="minutes">00</span>
+                <span class="separator">:</span>
+                <span id="seconds">00</span>
+            </div>
+            
+            <div class="controls">
+                <button id="start-btn" class="btn primary"><i class="fas fa-play"></i> Start</button>
+                <button id="pause-btn" class="btn warning" disabled><i class="fas fa-pause"></i> Pause</button>
+                <button id="reset-btn" class="btn danger"><i class="fas fa-redo"></i> Reset</button>
+            </div>
+            
+            <div class="duration-control">
+                <label for="timer-duration">Timer Duration (seconds):</label>
+                <input type="number" id="timer-duration" min="1" value="300">
+                <button id="set-duration-btn" class="btn secondary"><i class="fas fa-clock"></i> Set</button>
+            </div>
+            
+            <div class="remote-section">
+                <h3>Remote Control</h3>
+                <p>Use this URL to control the timer remotely:</p>
+                <div class="remote-url">
+                    <input type="text" id="remote-url" value="{{ remote_url }}" readonly>
+                    <button id="copy-btn" class="btn secondary"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+                <div class="qr-code" id="qr-code"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        const TIMER_ID = "{{ timer_id }}";
+        const REMOTE_URL = "{{ remote_url }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/countdown.js') }}"></script>
+</body>
+</html>
