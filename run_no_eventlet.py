@@ -46,4 +46,4 @@ def sync_time(data):
 
 if __name__ == '__main__':
     # Run with threading mode instead of eventlet
-    socketio.run(app, debug=True, host='0.0.0.0', port=5000)
+    socketio.run(app, debug=False, host='0.0.0.0', port=5000)
